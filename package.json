@@ -1,0 +1,16 @@
+{
+  "name": "landing-page",
+  "version": "1.0.0",
+  "description": "Landing Page moderna e responsiva desenvolvida para consultoria e treinamento personalizado.",
+  "main": "script.js",
+  "scripts": {
+  "dev": "live-server ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

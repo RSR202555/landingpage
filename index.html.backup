@@ -1,0 +1,841 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filipe Aquino - Consultoria e Treinamento Premium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <li><a href="#como-funciona">Como Funciona</a></li>
+    <li><a href="#planos">Planos</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a href="#planos" class="btn-primary">Agendar Agora</a>
+    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    </nav>
+    </header>
+
+    <!-- SEÇÃO 1: HERO -->
+    <section id="hero" class="hero">
+        <div class="hero-background"></div>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <p class="hero-badge">Consultoria Premium · Resultados Comprovados</p>
+                <h1 class="hero-title">Transforme seu desempenho com consultoria personalizada</h1>
+                <p class="hero-subtitle">
+                    Agende sua consultoria online de forma simples e segura. Planos personalizados,
+                    acompanhamento profissional e resultados que você pode ver.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#planos" class="btn-primary btn-large">Agendar Agora</a>
+                    <a href="#planos" class="btn-secondary btn-large">Ver Planos</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Alunos atendidos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">Satisfação</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">5 anos</span>
+                        <span class="stat-label">Experiência</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <!-- TROCAR ESTA IMAGEM: Coloque a foto do dono do projeto aqui -->
+                <!-- Substitua o src abaixo pelo caminho da sua imagem -->
+                <img id="foto-dono" src="/assets/foto-dono.jpg" alt="Filipe Aquino" class="owner-photo">
+                <div class="image-decoration"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO SOBRE MIM -->
+    <section id="sobre" class="sobre-mim">
+        <div class="container">
+            <div class="sobre-content">
+                <div class="sobre-image">
+                    <!-- TROCAR ESTA IMAGEM: Coloque uma foto profissional sua aqui -->
+                    <img src="/assets/filipe-aquino.jpg" alt="Filipe Aquino" class="about-photo">
+                    <div class="about-decoration"></div>
+                </div>
+
+                <div class="sobre-text">
+                    <p class="section-badge">Sobre Mim</p>
+                    <h2 class="section-title">Transformando Corpos, Performances E Mentalidades Desde 2013</h2>
+
+                    <div class="sobre-description">
+                        <p>
+                            Sou <strong>Filipe Aquino</strong>, atleta e treinador de fisiculturismo há mais de uma
+                            década. Minha trajetória começou nos palcos, onde desenvolvi a disciplina, a precisão e a
+                            consciência corporal que hoje formam a base de todo o meu método.
+                            Fui campeão do Arnold Classic, vice-campeão brasileiro e participei de competições que
+                            moldaram minha visão sobre treinamento, execução e estética de alto nível.
+                        </p>
+                        <p>
+                            Ao longo dos anos, deixei de apenas competir — passei também a formar atletas. Já preparei
+                            diversos campeões, inclusive alunos de outros países, como França, que buscaram meu trabalho
+                            exatamente pela minha leitura técnica e pela forma como ensino biomecânica e execução.
+                        </p>
+                        <p>
+                            A partir dessa vivência como atleta e treinador, desenvolvi um processo próprio: o
+                            <strong>Método Maestro™</strong>, um sistema que une consciência corporal, técnica refinada,
+                            vetores de execução, pressão interna e clareza na movimentação — para que qualquer pessoa,
+                            atleta ou não, aprenda a treinar de forma inteligente e eficaz.
+                        </p>
+                        <p>
+                            Meu trabalho não é "passar treino". É ensinar o corpo a performar, corrigir padrões, ajustar
+                            trajetórias, criar intenção muscular e transformar a execução em resultado. Já acompanhei
+                            mais de 500 alunos, entre iniciantes, avançados e atletas de palco, sempre com estratégias
+                            personalizadas e acompanhamento próximo.
+                        </p>
+                        <p>
+                            Acredito profundamente que o corpo muda quando a técnica muda. E é exatamente isso que eu
+                            entrego: consciência, refinamento, clareza e um caminho possível para quem decide evoluir de
+                            verdade.
+                        </p>
+                    </div>
+
+                    <div class="sobre-credentials">
+                        <div class="credential-item">
+                            <div class="credential-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                                    <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                                </svg>
+                            </div>
+                            <div class="credential-text">
+                                <h4>Formação Acadêmica</h4>
+                                <p>Graduação em Educação Física</p>
+                            </div>
+                        </div>
+
+                        <div class="credential-item">
+                            <div class="credential-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                    <polyline points="14 2 14 8 20 8" />
+                                    <line x1="16" y1="13" x2="8" y2="13" />
+                                    <line x1="16" y1="17" x2="8" y2="17" />
+                                    <polyline points="10 9 9 9 8 9" />
+                                </svg>
+                            </div>
+                            <div class="credential-text">
+                                <h4>Conquistas</h4>
+                                <p>Campeão Arnold Classic, Vice-Campeão Brasileiro</p>
+                            </div>
+                        </div>
+
+                        <div class="credential-item">
+                            <div class="credential-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                            </div>
+                            <div class="credential-text">
+                                <h4>Método Próprio</h4>
+                                <p>Criador do Método Maestro™</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sobre-achievements">
+                        <div class="achievement-item">
+                            <span class="achievement-number">1000+</span>
+                            <span class="achievement-label">Transformações</span>
+                        </div>
+                        <div class="achievement-item">
+                            <span class="achievement-number">12 Anos</span>
+                            <span class="achievement-label">De Experiência no Fisiculturismo</span>
+                        </div>
+                        <div class="achievement-item">
+                            <span class="achievement-number">100%</span>
+                            <span class="achievement-label">Graduado em Educação Física</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 2: ANTES E DEPOIS -->
+    <section id="antes-depois" class="antes-depois">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-badge">Resultados Reais</p>
+                <h2 class="section-title">Transformações que Inspiram</h2>
+                <p class="section-subtitle">Veja os resultados alcançados pelos nossos alunos</p>
+            </div>
+
+            <div class="carousel-container">
+                <button class="carousel-btn carousel-prev" id="carouselPrev">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6" />
+                    </svg>
+                </button>
+
+                <div class="carousel-wrapper">
+                    <div class="carousel-track" id="carouselTrack">
+                        <!-- TROCAR IMAGENS: Adicione suas fotos antes/depois aqui -->
+                        <!-- Formato: /assets/before1.jpg e /assets/after1.jpg -->
+                        <div class="carousel-slide">
+                            <div class="before-after-card">
+                                <div class="before-after-image">
+                                    <img src="/assets/before1.jpg" alt="Antes 1">
+                                    <span class="image-label label-before">ANTES</span>
+                                </div>
+                                <div class="before-after-image">
+                                    <img src="/assets/after1.jpg" alt="Depois 1">
+                                    <span class="image-label label-after">DEPOIS</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div class="before-after-card">
+                                <div class="before-after-image">
+                                    <img src="/assets/before2.jpg" alt="Antes 2">
+                                    <span class="image-label label-before">ANTES</span>
+                                </div>
+                                <div class="before-after-image">
+                                    <img src="/assets/after2.jpg" alt="Depois 2">
+                                    <span class="image-label label-after">DEPOIS</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div class="before-after-card">
+                                <div class="before-after-image">
+                                    <img src="/assets/before3.jpg" alt="Antes 3">
+                                    <span class="image-label label-before">ANTES</span>
+                                </div>
+                                <div class="before-after-image">
+                                    <img src="/assets/after3.jpg" alt="Depois 3">
+                                    <span class="image-label label-after">DEPOIS</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="carousel-btn carousel-next" id="carouselNext">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="carousel-dots" id="carouselDots"></div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 3: DEPOIMENTOS -->
+    <section id="depoimentos" class="depoimentos">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-badge">Depoimentos</p>
+                <h2 class="section-title">O que nossos alunos dizem</h2>
+                <p class="section-subtitle">Histórias reais de transformação e sucesso</p>
+            </div>
+
+            <div class="testimonials-grid" id="testimonialsGrid">
+                <!-- TROCAR FOTOS: Substitua as imagens dos clientes em /assets/client1.jpg, etc -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="/assets/client1.jpg" alt="Cliente 1" class="client-photo">
+                        <div class="client-info">
+                            <h4 class="client-name">Maria Silva</h4>
+                            <div class="rating">
+                                <svg class="star" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                                <svg class="star" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                                <svg class="star" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                                <svg class="star" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                                <svg class="star" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">
+                        "A consultoria mudou completamente minha rotina de treinos. Em 3 meses consegui resultados
+                        que não alcançava há anos. Profissionalismo e dedicação em cada sessão!"
+                    </p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="/assets/client2.jpg" alt="Cliente 2" class="client-photo">
+                        <div class="client-info">
+                            <h4 class="client-name">João Santos</h4>
+                            <div class="rating">
+                                <svg class="star" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                                <svg class="star" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                                <svg class="star" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                                <svg class="star" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                                <svg class="star" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">
+                        "Plataforma super fácil de usar, agendamento rápido e pagamento seguro. O acompanhamento
+                        é personalizado e os resultados aparecem rapidamente. Recomendo!"
+                    </p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="/assets/client3.jpg" alt="Cliente 3" class="client-photo">
+                        <div class="client-info">
+                            <h4 class="client-name">Ana Costa</h4>
+                            <div class="rating">
+                                <svg class="star" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                                <svg class="star" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                                <svg class="star" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                                <svg class="star" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                                <svg class="star" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">
+                        "Melhor investimento que fiz! O plano personalizado realmente funciona e o suporte é
+                        excepcional. Sinto que tenho um profissional dedicado ao meu progresso."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 4: COMO FUNCIONA -->
+    <section id="como-funciona" class="como-funciona">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-badge">Processo Simples</p>
+                <h2 class="section-title">Como funciona a consultoria</h2>
+                <p class="section-subtitle">4 passos para transformar seus resultados</p>
+            </div>
+
+            <div class="steps-timeline">
+                <div class="step-card" data-step="1">
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                            <line x1="16" y1="2" x2="16" y2="6" />
+                            <line x1="8" y1="2" x2="8" y2="6" />
+                            <line x1="3" y1="10" x2="21" y2="10" />
+                        </svg>
+                    </div>
+                    <div class="step-number">01</div>
+                    <h3 class="step-title">Agendamento Online</h3>
+                    <p class="step-description">
+                        Escolha o melhor horário na plataforma, selecione o plano ideal e
+                        finalize o pagamento de forma segura via Mercado Pago.
+                    </p>
+                </div>
+
+                <div class="step-connector"></div>
+
+                <div class="step-card" data-step="2">
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                        </svg>
+                    </div>
+                    <div class="step-number">02</div>
+                    <h3 class="step-title">Conversa Inicial</h3>
+                    <p class="step-description">
+                        Primeira sessão para entender seus objetivos, histórico e expectativas.
+                        Avaliação completa do seu nível atual.
+                    </p>
+                </div>
+
+                <div class="step-connector"></div>
+
+                <div class="step-card" data-step="3">
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                            <polyline points="14 2 14 8 20 8" />
+                            <line x1="16" y1="13" x2="8" y2="13" />
+                            <line x1="16" y1="17" x2="8" y2="17" />
+                            <polyline points="10 9 9 9 8 9" />
+                        </svg>
+                    </div>
+                    <div class="step-number">03</div>
+                    <h3 class="step-title">Plano Personalizado</h3>
+                    <p class="step-description">
+                        Receba um plano 100% customizado para suas necessidades, com metas
+                        claras e estratégias específicas para seus objetivos.
+                    </p>
+                </div>
+
+                <div class="step-connector"></div>
+
+                <div class="step-card" data-step="4">
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                        </svg>
+                    </div>
+                    <div class="step-number">04</div>
+                    <h3 class="step-title">Acompanhamento Contínuo</h3>
+                    <p class="step-description">
+                        Monitoramento constante do seu progresso, ajustes no plano quando necessário
+                        e suporte para alcançar resultados extraordinários.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 5: FAQ -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-badge">Dúvidas Frequentes</p>
+                <h2 class="section-title">Perguntas e Respostas</h2>
+                <p class="section-subtitle">Tire suas dúvidas sobre a consultoria</p>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Como funciona o agendamento online?</span>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19" />
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            O agendamento é super simples! Você escolhe o serviço desejado, seleciona data e horário
+                            disponíveis, preenche seus dados e finaliza o pagamento via Mercado Pago (Pix ou cartão).
+                            Após a confirmação, você recebe um e-mail com todos os detalhes.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Quais formas de pagamento são aceitas?</span>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19" />
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            Aceitamos pagamentos via Mercado Pago, incluindo Pix (confirmação instantânea) e
+                            cartão de crédito (parcelamento disponível). Todos os pagamentos são processados
+                            de forma segura e você recebe confirmação automática.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Posso cancelar ou remarcar meu agendamento?</span>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19" />
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            Sim! Cancelamentos e remarcações podem ser feitos com até 24 horas de antecedência
+                            sem custos adicionais. Entre em contato via WhatsApp ou e-mail para solicitar a alteração.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Quanto tempo dura cada sessão de consultoria?</span>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19" />
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            As sessões de consultoria têm duração de 60 minutos, tempo ideal para uma avaliação
+                            completa, discussão de estratégias e planejamento personalizado. Aulas práticas duram
+                            80 minutos (1h20).
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Os planos têm fidelidade ou posso cancelar quando quiser?</span>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19" />
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            Não há fidelidade! Você pode cancelar seu plano a qualquer momento. Trabalhamos com
+                            transparência total e queremos que você continue porque está satisfeito com os resultados,
+                            não por obrigação contratual.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Como funciona o acompanhamento entre as sessões?</span>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19" />
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            Você terá suporte via WhatsApp para tirar dúvidas, enviar atualizações de progresso e
+                            receber orientações. Nos planos Premium, o acompanhamento é ainda mais próximo com
+                            check-ins semanais e ajustes constantes no plano.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 6: PLANOS -->
+    <section id="planos" class="planos">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-badge">Escolha seu Plano</p>
+                <h2 class="section-title">Planos que cabem no seu bolso</h2>
+                <p class="section-subtitle">Invista no seu desenvolvimento com planos flexíveis</p>
+            </div>
+
+            <div class="pricing-grid">
+                <!-- PLANO BÁSICO -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="plan-name">Básico</h3>
+                        <p class="plan-description">Ideal para começar</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="currency">R$</span>
+                        <span class="amount">197</span>
+                        <span class="period">/mês</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <span>2 sessões mensais</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <span>Plano personalizado</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <span>Suporte via WhatsApp</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <span>Avaliação inicial</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <span>Material de apoio</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="plan-button">Assinar Plano</a>
+                </div>
+
+                <!-- PLANO INTERMEDIÁRIO (DESTAQUE) -->
+                <div class="pricing-card featured">
+                    <div class="featured-badge">Mais Popular</div>
+                    <div class="pricing-header">
+                        <h3 class="plan-name">Intermediário</h3>
+                        <p class="plan-description">Melhor custo-benefício</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="currency">R$</span>
+                        <span class="amount">254</span>
+                        <span class="period">/mês</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <span>4 sessões mensais</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <span>Plano personalizado avançado</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <span>Suporte prioritário</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <span>Avaliações mensais</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <span>Acesso a workshops</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <span>Ajustes ilimitados no plano</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="plan-button">Assinar Plano</a>
+                </div>
+
+                <!-- PLANO PREMIUM -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="plan-name">ðŸŸ£ Anual</h3>
+                        <p class="plan-description">Resultados máximos</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="currency">R$</span>
+                        <span class="amount">239</span>
+                        <span class="period">/mês</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <span>8 sessões mensais</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <span>Plano 100% customizado</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <span>Suporte 24/7</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <span>Avaliações semanais</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <span>Todos os workshops grátis</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <span>Acompanhamento nutricional</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <span>Grupo VIP exclusivo</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="plan-button">Assinar Plano</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 7: RODAPÉ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <div class="logo-icon"></div>
+                        <span>Filipe Aquino</span>
+                    </div>
+                    <p class="footer-description">
+                        Consultoria premium e treinamento personalizado para transformar seus resultados.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-title">Links Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#hero">Início</a></li>
+                        <li><a href="#antes-depois">Resultados</a></li>
+                        <li><a href="#depoimentos">Depoimentos</a></li>
+                        <li><a href="#como-funciona">Como Funciona</a></li>
+                        <li><a href="#planos">Planos</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-title">Serviços</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Consultoria Online</a></li>
+                        <li><a href="#">Aulas Práticas</a></li>
+                        <li><a href="#">Avaliação Física</a></li>
+                        <li><a href="#">Workshops</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-title">Contato</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            <a href="mailto:contato@filipeaquino.com">contato@filipeaquino.com</a>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                            </svg>
+                            <a href="https://wa.me/5511999999999" target="_blank">(11) 99999-9999</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div style="display: flex; align-items: center; gap: 10px; justify-content: center;">
+                    <img src="/assets/logo.png" alt="Logo Filipe Aquino" style="width: 32px; height: 32px;">
+                    <p>&copy; 2024 Filipe Aquino. Todos os direitos reservados.</p>
+                </div>
+                <div class="footer-legal">
+                    <a href="#">Política de Privacidade</a>
+                    <span>·</span>
+                    <a href="#">Termos de Uso</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    </body>
+
+</html>
+
+</html>
