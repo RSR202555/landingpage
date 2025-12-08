@@ -4,7 +4,8 @@
   "description": "Landing Page moderna e responsiva desenvolvida para consultoria e treinamento personalizado.",
   "main": "script.js",
   "scripts": {
-  "dev": "live-server ."
+    "dev": "live-server .",
+    "start": "live-server . --host=0.0.0.0 --port=${PORT:-3000}"
   },
   "keywords": [],
   "author": "",
