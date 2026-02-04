@@ -160,6 +160,14 @@
             return planId;
         }
 
+        async function parseResponseBody(response) {
+            const contentType = response.headers.get('content-type') || '';
+            if (contentType.includes('application/json')) {
+                return response.json();
+            }
+            return response.text();
+        }
+
         window.addEventListener('DOMContentLoaded', () => {
             const planId = initPlanSummary();
             const form = document.getElementById('checkoutForm');
@@ -199,8 +207,19 @@
                         }),
                     });
 
-                    const leadData = await leadResponse.json();
-                    const leadId = leadData?.id;
+                    if (!leadResponse.ok) {
+                        const leadErrorBody = await parseResponseBody(leadResponse);
+                        console.error('Erro ao salvar lead', {
+                            status: leadResponse.status,
+                            statusText: leadResponse.statusText,
+                            body: leadErrorBody,
+                        });
+                        alert('Não foi possível salvar seus dados para iniciar o pagamento. Tente novamente em alguns instantes.');
+                        return;
+                    }
+
+                    const leadData = await parseResponseBody(leadResponse);
+                    const leadId = (leadData && typeof leadData === 'object') ? leadData.id : undefined;
 
                     const response = await fetch(`${API_BASE_URL}/api/payments/create-preference`, {
                         method: 'POST',
@@ -211,16 +230,22 @@
                     });
 
                     if (!response.ok) {
-                        console.error('Erro ao criar preferência de pagamento', await response.text());
+                        const errorBody = await parseResponseBody(response);
+                        console.error('Erro ao criar preferência de pagamento', {
+                            status: response.status,
+                            statusText: response.statusText,
+                            body: errorBody,
+                        });
                         alert('Não foi possível iniciar o pagamento. Tente novamente em alguns instantes.');
                         return;
                     }
 
-                    const data = await response.json();
+                    const data = await parseResponseBody(response);
 
-                    if (data.init_point) {
+                    if (data && typeof data === 'object' && data.init_point) {
                         window.location.href = data.init_point;
                     } else {
+                        console.error('Resposta inesperada ao criar preferência', data);
                         alert('Não foi possível iniciar o pagamento. Tente novamente.');
                     }
                 } catch (error) {
