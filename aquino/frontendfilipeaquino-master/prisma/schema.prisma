@@ -1,0 +1,180 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String?
+  email     String   @unique
+  password  String?
+  role      Role     @default(USER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  bookings  Booking[]
+}
+
+enum Role {
+  ADMIN
+  USER
+}
+
+model Service {
+  id          Int        @id @default(autoincrement())
+  name        String
+  description String?
+  durationMin Int
+  type        ServiceType
+  basePrice   Decimal   @db.Decimal(10, 2)
+  active      Boolean   @default(true)
+
+  bookings    Booking[]
+  availabilities Availability[]
+}
+
+enum ServiceType {
+  AULA_INDIVIDUAL
+  AULA_DUPLA
+  AVALIACAO_FISICA
+  CONSULTA_TECNICA
+}
+
+model Workshop {
+  id           Int        @id @default(autoincrement())
+  title        String
+  description  String?    @db.Text
+  date         DateTime
+  durationMin  Int        @default(240)
+  maxSeats     Int        @default(10)
+  price        Decimal    @db.Decimal(10, 2)
+  active       Boolean    @default(true)
+  imageUrl     String?
+
+  bookings     Booking[]
+}
+
+model Availability {
+  id          Int       @id @default(autoincrement())
+  date        DateTime
+  startTime   DateTime
+  endTime     DateTime
+  isBlocked   Boolean   @default(false)
+  serviceId   Int?
+
+  service     Service?  @relation(fields: [serviceId], references: [id])
+  bookings    Booking[]
+
+  @@index([date])
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+}
+
+model Booking {
+  id              Int            @id @default(autoincrement())
+  userName        String
+  userEmail       String
+  userPhone       String?
+  notes           String?
+  customField     String?
+  gender          String?
+
+  status          BookingStatus  @default(PENDING)
+  reminderSent    Boolean        @default(false)
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+  scheduledAt     DateTime
+
+  serviceId       Int?
+  workshopId      Int?
+  availabilityId  Int?
+  userId          Int?
+
+  service         Service?       @relation(fields: [serviceId], references: [id])
+  workshop        Workshop?      @relation(fields: [workshopId], references: [id])
+  availability    Availability?  @relation(fields: [availabilityId], references: [id])
+  user            User?          @relation(fields: [userId], references: [id])
+  payment         Payment?
+}
+
+enum PaymentStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+model Payment {
+  id              Int           @id @default(autoincrement())
+  provider        String        @default("MERCADO_PAGO")
+  providerId      String?       @unique
+  status          PaymentStatus @default(PENDING)
+  amount          Decimal       @db.Decimal(10, 2)
+  currency        String        @default("BRL")
+  method          String?
+  rawPayload      Json?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  bookingId       Int           @unique
+  booking         Booking       @relation(fields: [bookingId], references: [id])
+}
+
+model Plan {
+  id          Int      @id @default(autoincrement())
+  slug        String   @unique
+  name        String
+  description String?
+  price       Decimal  @db.Decimal(10, 2)
+  features    String?  @db.Text
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Testimonial {
+  id        Int      @id @default(autoincrement())
+  name      String
+  message   String
+  rating    Int?
+  visible   Boolean @default(true)
+  createdAt DateTime @default(now())
+}
+
+model Setting {
+  id                      Int      @id @default(autoincrement())
+  siteTitle               String   @default("Agenda de Aulas")
+  heroTitle               String   @default("Agende suas aulas")
+  heroSubtitle            String   @default("Escolha o melhor horário para você")
+  aboutMe                 String?  @db.Text
+  contactEmail            String?
+  contactPhone            String?
+  cancellationPolicy      String?
+  workshopsIntroText      String?  @db.Text
+  workshopsEmptyText      String?  @db.Text
+  logoUrl                 String?
+  avatarUrl               String?
+  createdAt               DateTime @default(now())
+  updatedAt               DateTime @updatedAt
+}
+
+model Lead {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  phone     String
+  instagram String?
+  notes     String?
+  planId    String
+  createdAt DateTime @default(now())
+  hasPaid   Boolean  @default(false)
+
+  @@index([createdAt])
+}

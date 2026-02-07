@@ -1,0 +1,47 @@
+{
+  "name": "agendamentos-backend",
+  "version": "0.1.0",
+  "private": true,
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:studio": "prisma studio",
+    "db:seed": "ts-node prisma/seed.ts",
+    "export:csv": "ts-node src/scripts/exportCsv.ts",
+    "export:excel": "ts-node src/scripts/exportExcel.ts",
+    "prices:fix": "ts-node src/scripts/updatePrices.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "@types/node": "^20.0.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "date-fns": "^4.1.0",
+    "date-fns-tz": "^3.2.0",
+    "dotenv": "^16.4.0",
+    "exceljs": "^4.4.0",
+    "express": "^4.19.0",
+    "mercadopago": "^1.5.16",
+    "multer": "^2.0.2",
+    "mysql2": "^3.11.0",
+    "nodemailer": "^7.0.7",
+    "papaparse": "^5.4.1",
+    "resend": "^4.0.0",
+    "typescript": "^5.6.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/nodemailer": "^6.4.15",
+    "@types/papaparse": "^5.3.15",
+    "prisma": "^5.22.0",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0"
+  }
+}

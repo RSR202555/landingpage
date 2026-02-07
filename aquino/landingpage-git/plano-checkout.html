@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Plano - Filipe Aquino</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="/assets/logo.png" alt="Logo Filipe Aquino" class="logo-img">
+                <span>Filipe Aquino</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="planos" style="min-height: calc(100vh - 80px); display: flex; align-items: center;">
+        <div class="container">
+            <!-- Logo centralizada acima dos cards (destaque) -->
+            <div style="display: flex; justify-content: center; margin-bottom: 3rem;">
+                <div
+                    style="display: inline-flex; align-items: center; gap: 1rem; padding: 0.9rem 1.8rem; border-radius: 999px; background: linear-gradient(135deg, rgba(56,189,248,0.18), rgba(34,197,94,0.16)); border: 1px solid rgba(148,163,184,0.55); box-shadow: 0 18px 45px rgba(15,23,42,0.9);">
+                    <img src="/assets/logo.png" alt="Logo Filipe Aquino" style="width: 56px; height: 56px; object-fit: contain;" />
+                    <span style="font-weight: 600; font-size: 1.1rem; letter-spacing: 0.06em;">Filipe Aquino · Consultoria</span>
+                </div>
+            </div>
+
+            <div class="pricing-grid" style="max-width: 900px; margin: 0 auto; grid-template-columns: 1.2fr 1.3fr;">
+                <div class="pricing-card" id="resumoPlano">
+                    <div class="pricing-header">
+                        <h3 class="plan-name" id="planName">Plano</h3>
+                        <p class="plan-description" id="planDescription">Resumo do plano selecionado</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="currency">R$</span>
+                        <span class="amount" id="planAmount">0</span>
+                        <span class="period">/mês</span>
+                    </div>
+                    <ul class="plan-features" id="planFeatures">
+                        <li>Detalhes do plano selecionado.</li>
+                    </ul>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="plan-name">Seus dados</h3>
+                        <p class="plan-description">Preencha para continuar para o pagamento</p>
+                    </div>
+
+                    <form id="checkoutForm" class="checkout-form">
+                        <div class="form-group">
+                            <label for="name">Nome completo</label>
+                            <input type="text" id="name" name="name" required placeholder="Seu nome">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" required placeholder="seuemail@exemplo.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefone / WhatsApp</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="(71) 9 7111-5919">
+                        </div>
+                        <div class="form-group">
+                            <label for="instagram">@ do Instagram</label>
+                            <input type="text" id="instagram" name="instagram" placeholder="@seuusuario">
+                        </div>
+                        <div class="form-group">
+                            <label for="knowledgeLevel">Nível de conhecimento em musculação</label>
+                            <select id="knowledgeLevel" name="knowledgeLevel">
+                                <option value="">Selecione</option>
+                                <option value="INICIANTE">Iniciante</option>
+                                <option value="INTERMEDIARIO">Intermediário</option>
+                                <option value="AVANCADO">Avançado</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="birthDate">Data de nascimento</label>
+                            <input type="date" id="birthDate" name="birthDate">
+                        </div>
+                        <div class="form-group">
+                            <label for="notes">Observações / Objetivo</label>
+                            <textarea id="notes" name="notes" rows="3"
+                                placeholder="Conte rapidamente qual é o seu objetivo e nível atual"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem;">
+                            Prosseguir para pagamento
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const API_BASE_URL = 'https://aplicacoes-backendfilipeaquino.4icfs8.easypanel.host';
+
+        const plans = {
+            basico: {
+                name: 'Plano Básico',
+                description: 'Ideal para começar sua evolução com acompanhamento próximo.',
+                amount: 197,
+                features: [
+                    '2 sessões mensais',
+                    'Plano personalizado',
+                    'Suporte via WhatsApp',
+                    'Avaliação inicial'
+                ]
+            },
+            intermediario: {
+                name: 'Plano Intermediário',
+                description: 'Mais sessões, mais ajustes, mais resultados.',
+                amount: 297,
+                features: [
+                    '4 sessões mensais',
+                    'Plano personalizado avançado',
+                    'Suporte prioritário',
+                    'Avaliações mensais'
+                ]
+            },
+            anual: {
+                name: 'Plano Premium',
+                description: 'Compromisso de longo prazo com resultados máximos.',
+                amount: 497,
+                features: [
+                    '8 sessões mensais',
+                    'Plano 100% customizado',
+                    'Suporte prioritário',
+                    'Avaliações mensais',
+                    'Grupo VIP exclusivo'
+                ]
+            }
+        };
+
+        function initPlanSummary() {
+            const params = new URLSearchParams(window.location.search);
+            const planId = params.get('plan') || 'basico';
+            const plan = plans[planId] || plans.basico;
+
+            document.getElementById('planName').textContent = plan.name;
+            document.getElementById('planDescription').textContent = plan.description;
+            document.getElementById('planAmount').textContent = plan.amount;
+
+            const featuresList = document.getElementById('planFeatures');
+            featuresList.innerHTML = '';
+            plan.features.forEach(f => {
+                const li = document.createElement('li');
+                li.textContent = f;
+                featuresList.appendChild(li);
+            });
+
+            return planId;
+        }
+
+        async function parseResponseBody(response) {
+            const contentType = response.headers.get('content-type') || '';
+            if (contentType.includes('application/json')) {
+                return response.json();
+            }
+            return response.text();
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const planId = initPlanSummary();
+            const form = document.getElementById('checkoutForm');
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const name = (document.getElementById('name').value || '').trim();
+                const email = (document.getElementById('email').value || '').trim();
+                const phone = (document.getElementById('phone').value || '').trim();
+                const instagram = (document.getElementById('instagram').value || '').trim();
+                const knowledgeLevel = (document.getElementById('knowledgeLevel').value || '').trim();
+                const birthDate = (document.getElementById('birthDate').value || '').trim();
+                const notes = (document.getElementById('notes').value || '').trim();
+
+                if (!name || !email || !phone) {
+                    alert('Preencha pelo menos Nome, E-mail e Telefone para continuar.');
+                    return;
+                }
+
+                try {
+                    // Salvar lead antes de criar a preferência de pagamento
+                    const leadResponse = await fetch(`${API_BASE_URL}/api/leads`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            name,
+                            email,
+                            phone,
+                            instagram,
+                            knowledgeLevel,
+                            birthDate,
+                            notes,
+                            planId,
+                        }),
+                    });
+
+                    if (!leadResponse.ok) {
+                        const leadErrorBody = await parseResponseBody(leadResponse);
+                        console.error('Erro ao salvar lead', {
+                            status: leadResponse.status,
+                            statusText: leadResponse.statusText,
+                            body: leadErrorBody,
+                        });
+                        alert('Não foi possível salvar seus dados para iniciar o pagamento. Tente novamente em alguns instantes.');
+                        return;
+                    }
+
+                    const leadData = await parseResponseBody(leadResponse);
+                    const leadId = (leadData && typeof leadData === 'object') ? leadData.id : undefined;
+
+                    const response = await fetch(`${API_BASE_URL}/api/payments/create-preference`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ planId, leadId }),
+                    });
+
+                    if (!response.ok) {
+                        const errorBody = await parseResponseBody(response);
+                        console.error('Erro ao criar preferência de pagamento', {
+                            status: response.status,
+                            statusText: response.statusText,
+                            body: errorBody,
+                        });
+                        alert('Não foi possível iniciar o pagamento. Tente novamente em alguns instantes.');
+                        return;
+                    }
+
+                    const data = await parseResponseBody(response);
+
+                    if (data && typeof data === 'object' && data.init_point) {
+                        window.location.href = data.init_point;
+                    } else {
+                        console.error('Resposta inesperada ao criar preferência', data);
+                        alert('Não foi possível iniciar o pagamento. Tente novamente.');
+                    }
+                } catch (error) {
+                    console.error('Erro inesperado ao iniciar pagamento', error);
+                    alert('Ocorreu um erro ao iniciar o pagamento. Verifique sua conexão e tente novamente.');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
