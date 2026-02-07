@@ -1,17 +1,17 @@
 // @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
-import mercadopago from 'mercadopago';
+import { MercadoPagoConfig, Payment } from 'mercadopago';
 import { prisma } from '../../../../../lib/prisma';
 import { sendMail } from '@/lib/mail';
 import { timingSafeEqual } from 'crypto';
 
 export const maxDuration = 30;
 
-if (!mercadopago.configurations?.getAccessToken?.()) {
-  mercadopago.configure({
-    access_token: process.env.MERCADO_PAGO_ACCESS_TOKEN || '',
-  });
-}
+const mpClient = new MercadoPagoConfig({
+  accessToken: process.env.MERCADO_PAGO_ACCESS_TOKEN || '',
+});
+
+const mpPaymentClient = new Payment(mpClient);
 
 function safeEqual(a: string, b: string) {
   const aBuf = Buffer.from(a);
@@ -46,12 +46,12 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'ID de pagamento inválido' }, { status: 400 });
     }
 
-    const mpPayment = await mercadopago.payment.findById(paymentIdNum);
-    const status = mpPayment.body.status;
+    const mpPayment = await mpPaymentClient.get({ id: paymentIdNum });
+    const status = mpPayment.status;
 
-    const providerId = String(mpPayment.body.id);
+    const providerId = String(mpPayment.id);
 
-    const metadata: any = mpPayment.body.metadata || {};
+    const metadata: any = mpPayment.metadata || {};
     const leadId = metadata.leadId ?? metadata.lead_id;
     const planId = metadata.planId ?? metadata.plan_id;
 
@@ -100,8 +100,8 @@ export async function POST(request: NextRequest) {
         where: { id: payment.id },
         data: {
           status: 'APPROVED',
-          method: mpPayment.body.payment_method_id,
-          rawPayload: mpPayment.body as any,
+          method: mpPayment.payment_method_id,
+          rawPayload: mpPayment as any,
         },
       });
 
@@ -129,8 +129,8 @@ export async function POST(request: NextRequest) {
         where: { id: payment.id },
         data: {
           status: 'REJECTED',
-          method: mpPayment.body.payment_method_id,
-          rawPayload: mpPayment.body as any,
+          method: mpPayment.payment_method_id,
+          rawPayload: mpPayment as any,
         },
       });
 
