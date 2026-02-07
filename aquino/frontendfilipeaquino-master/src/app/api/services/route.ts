@@ -11,8 +11,8 @@ export async function GET() {
     });
 
     return NextResponse.json(services);
-  } catch (e) {
-    console.error(e);
+  } catch (e: any) {
+    console.error('GET /api/services error:', e?.message || e);
     return NextResponse.json({ error: 'Erro ao listar serviços' }, { status: 500 });
   }
 }

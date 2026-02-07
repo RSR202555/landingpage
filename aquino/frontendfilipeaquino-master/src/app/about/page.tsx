@@ -1,16 +1,12 @@
-import { apiGet } from "@/lib/api";
+import { prisma } from "../../../lib/prisma";
 
-interface AdminSettings {
-  siteTitle: string;
-  aboutMe: string | null;
-  avatarUrl: string | null;
-}
+export const dynamic = "force-dynamic";
 
 export default async function AboutPage() {
-  let settings: AdminSettings | null = null;
+  let settings: { siteTitle: string | null; aboutMe: string | null; avatarUrl: string | null } | null = null;
 
   try {
-    settings = await apiGet<AdminSettings>("/api/admin/settings");
+    settings = await prisma.setting.findFirst();
   } catch {
     settings = null;
   }

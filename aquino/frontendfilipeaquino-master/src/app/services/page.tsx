@@ -1,24 +1,21 @@
-import { apiGet } from "@/lib/api";
+import { prisma } from "../../../lib/prisma";
 
-interface Service {
-  id: number;
-  name: string;
-  description: string | null;
-  durationMin: number;
-  basePrice: string;
-  type: string;
-}
-
-interface AdminSettings {
-  heroSubtitle: string;
-  aboutMe: string | null;
-}
+export const dynamic = "force-dynamic";
 
 export default async function ServicesPage() {
-  const [services, settings] = await Promise.all([
-    apiGet<Service[]>("/api/services"),
-    apiGet<AdminSettings>("/api/admin/settings").catch(() => null),
+  const [servicesRaw, settings] = await Promise.all([
+    prisma.service.findMany({ where: { active: true }, orderBy: { id: "asc" } }),
+    prisma.setting.findFirst().catch(() => null),
   ]);
+
+  const services = servicesRaw.map((s) => ({
+    id: s.id,
+    name: s.name,
+    description: s.description,
+    durationMin: s.durationMin,
+    basePrice: String(s.basePrice),
+    type: s.type,
+  }));
 
   const introSubtitle = settings?.heroSubtitle || "Passo 1 · Escolha seu atendimento";
   const introText =

@@ -1,28 +1,32 @@
-import { apiGet } from "@/lib/api";
+import { prisma } from "../../../lib/prisma";
 import { WorkshopCard } from "@/components/WorkshopCard";
 
-interface Workshop {
-  id: number;
-  title: string;
-  description: string | null;
-  date: string;
-  durationMin: number;
-  maxSeats: number;
-  price: string;
-  active: boolean;
-  imageUrl?: string | null;
-}
-
-interface AdminSettings {
-  workshopsIntroText: string | null;
-  workshopsEmptyText: string | null;
-}
+export const dynamic = "force-dynamic";
 
 export default async function WorkshopsPage() {
-  const [workshops, settings] = await Promise.all([
-    apiGet<Workshop[]>("/api/workshops"),
-    apiGet<AdminSettings>("/api/admin/settings").catch(() => null),
+  const [workshopsRaw, settings] = await Promise.all([
+    prisma.workshop.findMany({
+      where: { active: true },
+      orderBy: { date: "asc" },
+      include: {
+        bookings: { where: { status: "CONFIRMED" }, select: { id: true } },
+      },
+    }),
+    prisma.setting.findFirst().catch(() => null),
   ]);
+
+  const workshops = workshopsRaw.map((w) => ({
+    id: w.id,
+    title: w.title,
+    description: w.description,
+    date: w.date.toISOString(),
+    durationMin: w.durationMin,
+    maxSeats: w.maxSeats,
+    price: String(w.price),
+    active: w.active,
+    imageUrl: w.imageUrl,
+    remainingSeats: w.maxSeats - w.bookings.length,
+  }));
 
   const introText =
     settings?.workshopsIntroText ||

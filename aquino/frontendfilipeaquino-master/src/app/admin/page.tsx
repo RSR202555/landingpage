@@ -1,4 +1,6 @@
-import { apiGet } from "@/lib/api";
+import { prisma } from "../../../lib/prisma";
+
+export const dynamic = "force-dynamic";
 
 interface AdminUpcomingBooking {
   id: number;
@@ -30,14 +32,44 @@ export default async function AdminDashboardPage() {
   let upcoming: AdminUpcomingBooking[] = [];
   let leads: Lead[] = [];
   try {
-    upcoming = await apiGet<AdminUpcomingBooking[]>("/api/bookings/admin/upcoming");
-  } catch (e) {
-    // em caso de erro, mantemos a lista vazia e a mensagem padrão
+    const now = new Date();
+    const bookings = await prisma.booking.findMany({
+      where: { scheduledAt: { gte: now } },
+      include: { service: true, workshop: true, payment: true },
+      orderBy: { scheduledAt: "asc" },
+      take: 20,
+    });
+    upcoming = bookings.map((b) => ({
+      id: b.id,
+      userName: b.userName,
+      userEmail: b.userEmail,
+      userPhone: b.userPhone,
+      gender: b.gender,
+      customField: b.customField,
+      status: b.status,
+      scheduledAt: b.scheduledAt.toISOString(),
+      serviceName: b.service ? b.service.name : null,
+      workshopTitle: b.workshop ? b.workshop.title : null,
+      paymentStatus: b.payment ? b.payment.status : null,
+      paymentAmount: b.payment ? String(b.payment.amount) : null,
+    }));
+  } catch {
+    // em caso de erro, mantemos a lista vazia
   }
 
   try {
-    leads = await apiGet<Lead[]>("/api/leads/admin");
-  } catch (e) {
+    const leadsRaw = await prisma.lead.findMany({ orderBy: { createdAt: "desc" } });
+    leads = leadsRaw.map((l) => ({
+      id: l.id,
+      name: l.name,
+      email: l.email,
+      phone: l.phone,
+      instagram: l.instagram,
+      notes: l.notes,
+      planId: l.planId,
+      createdAt: l.createdAt.toISOString(),
+    }));
+  } catch {
     // mantém lista vazia em caso de erro
   }
 

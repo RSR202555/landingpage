@@ -1,13 +1,21 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '../../../../../../lib/prisma';
+import { requireAdminAuth } from '@/lib/admin-auth';
 
 export async function PUT(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
+  const authError = await requireAdminAuth(request);
+  if (authError) return authError;
+
   try {
     const { id: idParam } = await params;
     const id = parseInt(idParam);
+    if (isNaN(id) || id <= 0) {
+      return NextResponse.json({ error: 'ID inválido' }, { status: 400 });
+    }
+
     const { title, description, date, durationMin, maxSeats, price, imageUrl, active } = await request.json();
 
     const existing = await prisma.workshop.findUnique({ where: { id } });
@@ -53,12 +61,18 @@ export async function PUT(
 }
 
 export async function DELETE(
-  _request: NextRequest,
+  request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
+  const authError = await requireAdminAuth(request);
+  if (authError) return authError;
+
   try {
     const { id: idParam } = await params;
     const id = parseInt(idParam);
+    if (isNaN(id) || id <= 0) {
+      return NextResponse.json({ error: 'ID inválido' }, { status: 400 });
+    }
 
     const existing = await prisma.workshop.findUnique({
       where: { id },

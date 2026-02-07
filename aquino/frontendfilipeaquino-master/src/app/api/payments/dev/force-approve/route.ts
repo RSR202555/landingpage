@@ -1,7 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '../../../../../../lib/prisma';
+import { requireAdminAuth } from '@/lib/admin-auth';
 
 export async function POST(request: NextRequest) {
+  if (process.env.NODE_ENV === 'production') {
+    return NextResponse.json({ error: 'Rota desabilitada em produção' }, { status: 403 });
+  }
+
+  const authError = await requireAdminAuth(request);
+  if (authError) return authError;
+
   try {
     const { paymentId } = await request.json();
 
