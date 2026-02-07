@@ -1,6 +1,20 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL || '';
+function getApiBaseUrl(): string {
+  const publicUrl = process.env.NEXT_PUBLIC_API_URL;
+  if (publicUrl) return publicUrl;
+
+  if (typeof window !== 'undefined') return '';
+
+  const nextAuthUrl = process.env.NEXTAUTH_URL;
+  if (nextAuthUrl) return nextAuthUrl;
+
+  const vercelUrl = process.env.VERCEL_URL;
+  if (vercelUrl) return `https://${vercelUrl}`;
+
+  throw new Error('Base URL não configurada. Defina NEXT_PUBLIC_API_URL ou NEXTAUTH_URL.');
+}
 
 export async function apiGet<T>(path: string): Promise<T> {
+  const API_URL = getApiBaseUrl();
   const res = await fetch(`${API_URL}${path}`, {
     cache: 'no-store',
   });
@@ -11,6 +25,7 @@ export async function apiGet<T>(path: string): Promise<T> {
 }
 
 export async function apiPost<T>(path: string, body: unknown): Promise<T> {
+  const API_URL = getApiBaseUrl();
   const res = await fetch(`${API_URL}${path}`, {
     method: 'POST',
     headers: {
@@ -25,6 +40,7 @@ export async function apiPost<T>(path: string, body: unknown): Promise<T> {
 }
 
 export async function apiPut<T>(path: string, body: unknown): Promise<T> {
+  const API_URL = getApiBaseUrl();
   const res = await fetch(`${API_URL}${path}`, {
     method: 'PUT',
     headers: {
@@ -39,6 +55,7 @@ export async function apiPut<T>(path: string, body: unknown): Promise<T> {
 }
 
 export async function apiDelete<T>(path: string): Promise<T> {
+  const API_URL = getApiBaseUrl();
   const res = await fetch(`${API_URL}${path}`, {
     method: 'DELETE',
   });
@@ -50,6 +67,7 @@ export async function apiDelete<T>(path: string): Promise<T> {
 }
 
 export async function apiPatch<T>(path: string, body?: unknown): Promise<T> {
+  const API_URL = getApiBaseUrl();
   const res = await fetch(`${API_URL}${path}`, {
     method: 'PATCH',
     headers: {
