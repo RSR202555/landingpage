@@ -4,7 +4,12 @@ import { redirect } from "next/navigation";
 import { authOptions } from "@/lib/auth";
 
 export default async function AdminLayout({ children }: { children: ReactNode }) {
-  const session = await getServerSession(authOptions);
+  let session;
+  try {
+    session = await getServerSession(authOptions);
+  } catch {
+    redirect("/admin-login");
+  }
 
   // protege rota admin: só ADMIN
   if (!session || (session.user as any)?.role !== "ADMIN") {
