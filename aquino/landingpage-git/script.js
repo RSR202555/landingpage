@@ -43,8 +43,6 @@ const dots = document.querySelectorAll('.carousel-dot');
 function updateCarousel() {
     const offset = -currentSlide * 100;
     carouselTrack.style.transform = `translateX(${offset}%)`;
-
-    // Atualizar dots
     dots.forEach((dot, index) => {
         dot.classList.toggle('active', index === currentSlide);
     });
@@ -56,20 +54,19 @@ function goToSlide(index) {
 }
 
 function nextSlide() {
+    if (totalSlides <= 1) return;
     currentSlide = (currentSlide + 1) % totalSlides;
     updateCarousel();
 }
 
 function prevSlide() {
+    if (totalSlides <= 1) return;
     currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
     updateCarousel();
 }
 
 carouselNext.addEventListener('click', nextSlide);
 carouselPrev.addEventListener('click', prevSlide);
-
-// Auto-play (opcional - descomente para ativar)
-// setInterval(nextSlide, 5000);
 
 // Suporte a swipe no mobile
 let touchStartX = 0;
@@ -81,17 +78,9 @@ carouselTrack.addEventListener('touchstart', (e) => {
 
 carouselTrack.addEventListener('touchend', (e) => {
     touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
+    if (touchEndX < touchStartX - 50) nextSlide();
+    if (touchEndX > touchStartX + 50) prevSlide();
 });
-
-function handleSwipe() {
-    if (touchEndX < touchStartX - 50) {
-        nextSlide();
-    }
-    if (touchEndX > touchStartX + 50) {
-        prevSlide();
-    }
-}
 
 // ========================================
 // DEPOIMENTOS AUTO-SCROLL (OPCIONAL)
@@ -157,8 +146,8 @@ document.querySelectorAll('.fade-in').forEach(el => {
     observer.observe(el);
 });
 
-// Observar cards de passos
-document.querySelectorAll('.step-card').forEach(el => {
+// Observar itens de passos
+document.querySelectorAll('.step-item').forEach(el => {
     observer.observe(el);
 });
 
