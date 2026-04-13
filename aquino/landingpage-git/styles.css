@@ -368,8 +368,8 @@ body {
 
 .sobre-content {
     display: grid;
-    grid-template-columns: 260px 1fr 360px;
-    gap: var(--spacing-xl);
+    grid-template-columns: 1fr 1.5fr;
+    gap: var(--spacing-2xl);
     align-items: start;
 }
 
@@ -398,14 +398,13 @@ body {
 }
 
 .sobre-description {
-    margin-bottom: 0;
+    margin-bottom: var(--spacing-lg);
 }
 
 .sobre-description p {
     color: var(--color-text-secondary);
     line-height: 1.8;
     margin-bottom: var(--spacing-md);
-    font-size: var(--font-size-sm);
 }
 
 .sobre-description strong {
@@ -413,29 +412,20 @@ body {
     font-weight: 600;
 }
 
-.sobre-info-group {
-    background: var(--color-bg-card);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: var(--spacing-lg);
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-md);
-}
-
 .sobre-credentials {
     display: grid;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
 }
 
 .credential-item {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: var(--spacing-sm);
-    background: rgba(255,255,255,0.03);
+    background: var(--color-bg-card);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-md);
     transition: all 0.3s;
 }
 
@@ -473,36 +463,34 @@ body {
 }
 
 .sobre-achievements {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    border-top: 1px solid var(--color-border);
-    padding-top: var(--spacing-md);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
 }
 
 .achievement-item {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: var(--spacing-sm);
-    padding: 0.5rem 0;
-}
-
-.achievement-item + .achievement-item {
-    border-top: 1px solid var(--color-border);
+    text-align: center;
+    padding: var(--spacing-md);
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
 }
 
 .achievement-number {
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-3xl);
     font-weight: 700;
     color: var(--color-accent-primary);
-    line-height: 1;
-    white-space: nowrap;
-    min-width: 70px;
+    margin-bottom: 0.25rem;
 }
 
 .achievement-label {
     font-size: var(--font-size-xs);
     color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     line-height: 1.3;
@@ -1324,11 +1312,6 @@ body {
    RESPONSIVIDADE
    ======================================== */
 @media (max-width: 1024px) {
-    .sobre-content {
-        grid-template-columns: 220px 1fr 280px;
-        gap: var(--spacing-lg);
-    }
-
     .carousel-prev {
         left: 10px;
     }
@@ -1476,32 +1459,8 @@ body {
     margin: 0 auto;
   }
 
-  .sobre-description p {
-    font-size: var(--font-size-sm);
-  }
-
-  .sobre-info-group {
-    padding: var(--spacing-md);
-  }
-
   .sobre-achievements {
-    flex-direction: row;
-    justify-content: space-around;
-    gap: 0;
-  }
-
-  .achievement-item {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    flex: 1;
-    padding: 0 var(--spacing-xs);
-    border-top: none !important;
-  }
-
-  .achievement-item + .achievement-item {
-    border-top: none;
-    border-left: 1px solid var(--color-border);
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .achievement-number {
